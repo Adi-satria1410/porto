@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">ASR template favicon</title>
+  <rect width="64" height="64" rx="10" fill="#121212"/>
+  <path d="M4 54 60 10" stroke="#ee3824" stroke-width="4"/>
+  <text x="9" y="39" fill="#f2efe9" font-family="Space Grotesk, sans-serif" font-size="25" font-weight="700">ASR</text>
+</svg>
