@@ -1,1 +1,14 @@
-:root{--ink:#121212;--paper:#f2efe9;--red:#ee3824;--line:rgba(18,18,18,.18);--muted:#77736d;--display:'Space Grotesk',sans-serif;--mono:'DM Mono',monospace;--pad:clamp(1.25rem,4vw,4.5rem)}
+:root {
+  --ink: #121212;
+  --paper: #f2efe9;
+  --red: #ee3824;
+  --orange: #f7a026;
+  --line: rgba(18, 18, 18, .18);
+  --muted: #77736d;
+  --display: 'Space Grotesk', sans-serif;
+  --mono: 'DM Mono', monospace;
+  --pad: clamp(1.25rem, 4vw, 4.5rem);
+  --section-space: clamp(4.75rem, 11vw, 10rem);
+  --focus: 0 0 0 3px var(--paper), 0 0 0 6px var(--orange);
+  --content-width: 90rem;
+}

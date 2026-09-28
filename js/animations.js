@@ -20,7 +20,7 @@ window.addEventListener('DOMContentLoaded', () => {
       entry.target.classList.add('is-revealed');
       observer.unobserve(entry.target);
     });
-  }, { threshold: 0.16 });
+  }, { threshold: 0.12 });
 
   revealSections.forEach((section) => observer.observe(section));
 });

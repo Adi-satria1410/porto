@@ -7,7 +7,7 @@ Website portfolio single-page untuk Adi Satria Ramadani, Frontend Developer. Por
 
 ## Status
 
-Project berada pada tahap **siap implementasi redesign**. Struktur HTML, CSS, JavaScript, project card, FAQ, preloader, dan responsive baseline sudah tersedia. Konten dan aset final masih perlu menggantikan beberapa template sebelum publish.
+Redesign hybrid editorial sudah diimplementasikan pada HTML, CSS, dan JavaScript vanilla. Konten utama, navigasi, project card, Services, Process, FAQ, progressive enhancement, dan responsive layout sudah tersedia. Publish masih menunggu screenshot KONI yang disetujui, CV asli, dan verifikasi kontak sosial.
 
 ## Arah Desain
 
@@ -47,7 +47,6 @@ CTA:
 
 - Lihat karya
 - Hubungi saya
-- Download CV
 
 ### About
 
@@ -70,11 +69,11 @@ Website informasi olahraga Kabupaten Karawang yang memuat homepage, cabang olahr
 > Saya mendesain dan mengimplementasikan hampir seluruh halaman publik website secara responsif. Backend dan admin panel Filament dikerjakan oleh anggota tim lain.
 
 - Website: [konikarawang.or.id](https://konikarawang.or.id/)
-- Preview: screenshot desktop dan mobile
+- Preview: slot screenshot desktop dan mobile sudah disiapkan; aset screenshot final masih diperlukan
 - Kontribusi: frontend design dan implementation
 - Atribusi: jangan mengklaim backend, admin panel, deployment, atau kepemilikan project sebagai pekerjaan pribadi
 
-Preview mobile sebaiknya dipotong dari browser chrome atau ditempatkan dalam mockup perangkat. Tambahkan screenshot halaman internal seperti Cabang Olahraga, Prestasi, Event, atau Kegiatan bila tersedia.
+Preview mobile sebaiknya dipotong dari browser chrome atau ditempatkan dalam mockup perangkat. Tambahkan screenshot halaman internal seperti Cabang Olahraga, Prestasi, Event, atau Kegiatan bila tersedia dan sudah mendapat izin.
 
 ### Project #3
 
@@ -143,13 +142,9 @@ PORTO/
 │   └── animations.js
 ├── assets/
 │   ├── images/
-│   │   ├── projects/
-│   │   │   └── koni/
-│   │   ├── profile.svg atau foto asli
-│   │   ├── og-preview.jpg
-│   │   └── favicon.ico
+│   │   └── projects/
+│   │       └── koni/
 │   └── cv/
-│       └── CV-Adi-Satria-Ramadani.pdf
 ├── README.md
 └── PRD-Development-Plan-v3.md
 ```
@@ -173,7 +168,7 @@ http://localhost/PORTO/
 `js/main.js` mengelola:
 
 - State navbar setelah scroll.
-- Menu mobile.
+- Menu mobile, Escape, outside click, dan focus return.
 - Penutupan menu setelah link dipilih.
 - Preloader.
 - Accordion FAQ.
@@ -188,12 +183,11 @@ JavaScript tidak boleh menjadi satu-satunya cara untuk membaca konten, membuka l
 
 ## Konten dan Aset yang Masih Diperlukan
 
-- Foto/avatar asli atau keputusan memakai visual tanpa foto.
+- Screenshot KONI desktop dan mobile yang boleh dipublikasikan.
 - CV asli.
-- Screenshot internal KONI tambahan.
 - Link GitHub dan LinkedIn final.
-- Nomor WhatsApp aktif.
-- OG image dan favicon final.
+- Nomor WhatsApp aktif bila CTA WhatsApp akan dipakai.
+- OG image dan favicon final bila ingin ditambahkan.
 - Project mandiri ketiga.
 - Keputusan analytics GoatCounter.
 
@@ -206,15 +200,15 @@ JavaScript tidak boleh menjadi satu-satunya cara untuk membaca konten, membuka l
 - [ ] Screenshot mobile sudah dipotong atau diberi mockup yang rapi.
 - [ ] Link website KONI dapat dibuka.
 - [ ] Tidak ada klaim backend, admin panel, deployment, atau kepemilikan KONI yang tidak sesuai kontribusi.
-- [ ] CV template diganti dengan CV asli atau CTA download dihapus.
-- [ ] Foto, favicon, dan OG image template diganti atau dihapus.
-- [ ] Placeholder WhatsApp `0000000000` diganti.
+- [ ] CV asli tersedia sebelum CTA download ditambahkan.
+- [ ] Favicon dan OG image final tersedia sebelum metadata aset ditambahkan.
+- [ ] WhatsApp hanya ditampilkan setelah nomor aktif diverifikasi.
 - [ ] GoatCounter tidak memakai `YOUR-CODE`.
 - [ ] Menu mobile bisa dibuka, ditutup dengan Escape, dan mengembalikan focus.
 - [ ] FAQ bekerja dengan mouse dan keyboard.
 - [ ] Tidak ada overflow pada 320px, 375px, 768px, dan desktop.
 - [ ] Reduced motion diuji.
-- [ ] Title, description, canonical, OG image, favicon, dan satu `h1` tervalidasi.
+- [ ] Title, description, canonical, dan satu `h1` tervalidasi; OG image/favicon ditambahkan setelah aset final tersedia.
 
 ## Lisensi
 
