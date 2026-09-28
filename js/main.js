@@ -128,80 +128,186 @@ faqButtons.forEach((button, index) => {
 //lightbox modal
 document.addEventListener('DOMContentLoaded', () => {
 
-  const lightbox = document.querySelector('#imageLightbox');
+  const lightbox =
+    document.querySelector('#imageLightbox');
 
-  const lightboxImage = document.querySelector(
-    '.image-lightbox__image'
-  );
+  const lightboxImage =
+    document.querySelector(
+      '.image-lightbox__image'
+    );
 
-  const lightboxClose = document.querySelector(
-    '.image-lightbox__close'
-  );
+  const lightboxClose =
+    document.querySelector(
+      '.image-lightbox__close'
+    );
 
-  const lightboxTriggers = document.querySelectorAll(
-    '[data-lightbox]'
-  );
+  const lightboxTriggers =
+    document.querySelectorAll(
+      '[data-lightbox]'
+    );
 
 
-  // Cek apakah elemen berhasil ditemukan
-  if (!lightbox || !lightboxImage || !lightboxClose) {
-    console.error('Lightbox element tidak ditemukan.');
+  if (
+    !lightbox ||
+    !lightboxImage ||
+    !lightboxClose
+  ) {
+
+    console.error(
+      'Lightbox element tidak ditemukan.'
+    );
+
     return;
+
   }
 
 
+  /* =========================
+     OPEN LIGHTBOX
+     ========================= */
+
   const openLightbox = (image) => {
 
-    lightboxImage.src = image.src;
-    lightboxImage.alt = image.alt;
+    /*
+      Hindari membuka lightbox dua kali
+      kalau user melakukan klik cepat.
+    */
+    if (
+      lightbox.classList.contains(
+        'is-active'
+      )
+    ) {
+      return;
+    }
 
-    lightbox.classList.add('is-active');
+
+    lightboxImage.src =
+      image.src;
+
+    lightboxImage.alt =
+      image.alt;
+
+
+    lightbox.classList.add(
+      'is-active'
+    );
+
 
     lightbox.setAttribute(
       'aria-hidden',
       'false'
     );
 
-    document.body.style.overflow = 'hidden';
+
+    document.body.style.overflow =
+      'hidden';
+
+
+    /*
+      Tambahkan history khusus lightbox.
+    */
+
+    history.pushState(
+      {
+        lightboxOpen: true
+      },
+      '',
+      window.location.href
+    );
 
   };
 
 
-  const closeLightbox = () => {
+  /* =========================
+     HIDE LIGHTBOX
+     ========================= */
 
-    lightbox.classList.remove('is-active');
+  const hideLightbox = () => {
+
+    lightbox.classList.remove(
+      'is-active'
+    );
+
 
     lightbox.setAttribute(
       'aria-hidden',
       'true'
     );
 
-    document.body.style.overflow = '';
 
-    // kosongkan gambar setelah modal ditutup
+    document.body.style.overflow =
+      '';
+
+
     setTimeout(() => {
+
       lightboxImage.src = '';
+      lightboxImage.alt = '';
+
     }, 300);
 
   };
 
 
-  lightboxTriggers.forEach((image) => {
+  /* =========================
+     CLOSE LIGHTBOX
+     ========================= */
 
-    image.addEventListener('click', () => {
+  const closeLightbox = () => {
 
-      openLightbox(image);
+    if (
+      !lightbox.classList.contains(
+        'is-active'
+      )
+    ) {
+      return;
+    }
 
-    });
 
-  });
+    /*
+      Kembali ke history sebelumnya.
+      Event popstate akan menjalankan
+      hideLightbox().
+    */
 
+    history.back();
+
+  };
+
+
+  /* =========================
+     IMAGE CLICK
+     ========================= */
+
+  lightboxTriggers.forEach(
+    (image) => {
+
+      image.addEventListener(
+        'click',
+        () => {
+
+          openLightbox(image);
+
+        }
+      );
+
+    }
+  );
+
+
+  /* =========================
+     CLOSE BUTTON
+     ========================= */
 
   lightboxClose.addEventListener(
     'click',
     closeLightbox
   );
 
+
+  /* =========================
+     CLICK BACKDROP
+     ========================= */
 
   lightbox.addEventListener(
     'click',
@@ -213,12 +319,18 @@ document.addEventListener('DOMContentLoaded', () => {
           'image-lightbox__content'
         )
       ) {
+
         closeLightbox();
+
       }
 
     }
   );
 
+
+  /* =========================
+     ESC KEY
+     ========================= */
 
   document.addEventListener(
     'keydown',
@@ -226,9 +338,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (
         event.key === 'Escape' &&
-        lightbox.classList.contains('is-active')
+        lightbox.classList.contains(
+          'is-active'
+        )
       ) {
+
         closeLightbox();
+
+      }
+
+    }
+  );
+
+
+  /* =========================
+     MOBILE BACK BUTTON
+     ========================= */
+
+  window.addEventListener(
+    'popstate',
+    () => {
+
+      if (
+        lightbox.classList.contains(
+          'is-active'
+        )
+      ) {
+
+        hideLightbox();
+
       }
 
     }
