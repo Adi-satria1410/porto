@@ -20,9 +20,18 @@
 <body>
   <a class="skip-link" href="#main-content">Lewati ke konten utama</a>
 
-  <div class="preloader" id="preloader" role="status" aria-live="polite">
-    <span>ASR / PORTFOLIO</span>
-    <span class="preloader__bar" aria-hidden="true"></span>
+  <div class="preloader" id="preloader" role="status" aria-live="polite" aria-label="Memuat portfolio">
+    <span class="sr-only">Memuat portfolio Adi Satria Ramadani</span>
+    <p class="preloader__label" aria-hidden="true">ASR / PORTFOLIO 2026</p>
+    <p class="preloader__counter" id="preloaderCounter" aria-hidden="true">01</p>
+    <div class="preloader__words" aria-hidden="true">
+      <span class="preloader__word preloader__word--portfolio">PORTFOLIO</span>
+      <span class="preloader__word preloader__word--role">FRONTEND DEVELOPER</span>
+    </div>
+    <p class="preloader__name" aria-hidden="true"><span><span>ADI</span></span><span><span>SATRIA</span></span><span><span>RAMADANI</span></span></p>
+    <span class="preloader__circle preloader__circle--outline" aria-hidden="true"></span>
+    <span class="preloader__dot preloader__dot--red" aria-hidden="true"></span>
+    <span class="preloader__dot preloader__dot--orange" aria-hidden="true"></span>
   </div>
 
   <header class="navbar" id="navbar">
@@ -102,11 +111,15 @@
             </div>
             <div class="project-card__media" aria-label="Preview screenshot KONI">
               <figure class="project-preview project-preview--desktop">
-                <div class="project-preview__screen" role="img" aria-label="Screenshot desktop website KONI Kabupaten Karawang menunggu aset final">SCREENSHOT DESKTOP<br /><span>KONI KARAWANG</span></div>
+                <div class="project-preview__screen">
+                  <img src="assets/images/projects/koni/Cuplikan%20layar%202026-09-27%20230343.png" alt="Beranda KONI Kabupaten Karawang di desktop, dengan navigasi dan banner informasi olahraga." width="1896" height="949" loading="lazy" decoding="async" />
+                </div>
                 <figcaption>DESKTOP PREVIEW</figcaption>
               </figure>
               <figure class="project-preview project-preview--mobile">
-                <div class="project-preview__screen" role="img" aria-label="Screenshot mobile website KONI Kabupaten Karawang menunggu aset final">SCREENSHOT MOBILE<br /><span>KONI KARAWANG</span></div>
+                <div class="project-preview__screen">
+                  <img src="assets/images/projects/koni/iPhone-13-PRO-konikarawang.or.id.png" alt="Beranda KONI Kabupaten Karawang di mobile, dengan menu hamburger dan tombol menuju cabang olahraga serta prestasi." width="700" height="1516" loading="lazy" decoding="async" />
+                </div>
                 <figcaption>MOBILE PREVIEW</figcaption>
               </figure>
             </div>
@@ -160,9 +173,11 @@
             <h3>Website publik KONI Kabupaten Karawang</h3>
             <p>Desain frontend dan implementasi hampir seluruh halaman publik secara responsif pada project kolaboratif.</p>
           </article>
-          <article class="experience__item experience__item--muted">
-            <p class="eyebrow">PENDIDIKAN</p>
-            <p>Detail pendidikan akan ditambahkan setelah informasi final dikonfirmasi.</p>
+          <article class="experience__item experience__item--education">
+            <p class="eyebrow">PENDIDIKAN / LATAR AKADEMIK</p>
+            <h3>Sarjana (S1) Sistem Informasi</h3>
+            <p class="experience__institution">Universitas Bina Sarana Informatika</p>
+            <p>Pendidikan ini menjadi dasar ketertarikan saya pada cara kebutuhan manusia diterjemahkan menjadi solusi digital yang terstruktur dan mudah digunakan.</p>
           </article>
         </div>
       </div>

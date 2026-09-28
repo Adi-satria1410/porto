@@ -49,15 +49,62 @@ document.addEventListener('click', (event) => {
   if (!navLinks.contains(event.target) && !navToggle.contains(event.target)) closeMenu();
 });
 
-const hidePreloader = () => preloader?.classList.add('is-hidden');
+const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+const PRELOADER_DURATION = 980;
+const PRELOADER_FALLBACK = 1300;
+let preloaderFrame = null;
+let preloaderFinished = false;
 
-if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-  hidePreloader();
-} else if (document.readyState === 'complete') {
-  hidePreloader();
-} else {
-  window.addEventListener('load', hidePreloader, { once: true });
-  window.setTimeout(hidePreloader, 800);
+const completePreloader = (instant = false) => {
+  if (!preloader || preloaderFinished) return;
+  preloaderFinished = true;
+  if (preloaderFrame) {
+    if (window.cancelAnimationFrame) window.cancelAnimationFrame(preloaderFrame);
+    else window.clearTimeout(preloaderFrame);
+  }
+
+  const counter = document.getElementById('preloaderCounter');
+  if (counter) counter.textContent = '100';
+  preloader.setAttribute('aria-label', 'Portfolio siap');
+  preloader.classList.add('is-complete');
+
+  if (instant) {
+    preloader.classList.add('is-hidden');
+    return;
+  }
+
+  window.setTimeout(() => preloader.classList.add('is-hidden'), 340);
+};
+
+if (preloader) {
+  if (reducedMotionQuery.matches) {
+    completePreloader(true);
+  } else {
+    const counter = document.getElementById('preloaderCounter');
+    const requestFrame = window.requestAnimationFrame || ((callback) => window.setTimeout(() => callback(performance.now()), 16));
+    const startedAt = performance.now();
+
+    const updateCounter = (now) => {
+      const progress = Math.min((now - startedAt) / PRELOADER_DURATION, 1);
+      const value = Math.min(100, Math.max(1, Math.floor(1 + progress * 99)));
+      if (counter) counter.textContent = String(value).padStart(2, '0');
+      if (progress < 1 && !preloaderFinished) {
+        preloaderFrame = requestFrame(updateCounter);
+      }
+    };
+
+    preloaderFrame = requestFrame(updateCounter);
+    window.setTimeout(() => completePreloader(), PRELOADER_DURATION);
+    window.setTimeout(() => completePreloader(true), PRELOADER_FALLBACK);
+
+    // Keep the fallback cancellable for browsers with a partial animation API.
+    window.addEventListener('pagehide', () => {
+      if (preloaderFrame) {
+        if (window.cancelAnimationFrame) window.cancelAnimationFrame(preloaderFrame);
+        else window.clearTimeout(preloaderFrame);
+      }
+    }, { once: true });
+  }
 }
 
 const faqButtons = document.querySelectorAll('[data-faq-toggle]');
