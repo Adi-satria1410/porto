@@ -112,13 +112,13 @@
             <div class="project-card__media" aria-label="Preview screenshot KONI">
               <figure class="project-preview project-preview--desktop">
                 <div class="project-preview__screen">
-                  <img src="assets/images/projects/koni/Cuplikan%20layar%202026-09-27%20230343.png" alt="Beranda KONI Kabupaten Karawang di desktop, dengan navigasi dan banner informasi olahraga." width="1896" height="949" loading="lazy" decoding="async" />
+                  <img src="assets/images/projects/koni/Cuplikan%20layar%202026-09-27%20230343.png" alt="Beranda KONI Kabupaten Karawang di desktop, dengan navigasi dan banner informasi olahraga." width="1896" height="949" loading="lazy" decoding="async" data-lightbox />
                 </div>
                 <figcaption>DESKTOP PREVIEW</figcaption>
               </figure>
               <figure class="project-preview project-preview--mobile">
                 <div class="project-preview__screen">
-                  <img src="assets/images/projects/koni/iPhone-13-PRO-konikarawang.or.id.png" alt="Beranda KONI Kabupaten Karawang di mobile, dengan menu hamburger dan tombol menuju cabang olahraga serta prestasi." width="700" height="1516" loading="lazy" decoding="async" />
+                  <img src="assets/images/projects/koni/iPhone-13-PRO-konikarawang.or.id.png" alt="Beranda KONI Kabupaten Karawang di mobile, dengan menu hamburger dan tombol menuju cabang olahraga serta prestasi." width="700" height="1516" loading="lazy" decoding="async" data-lightbox />
                 </div>
                 <figcaption>MOBILE PREVIEW</figcaption>
               </figure>
@@ -251,5 +251,13 @@
 
   <script src="js/main.js"></script>
   <script src="js/animations.js"></script>
+
+  <!-- modal lightbox -->
+  <div class="image-lightbox" id="imageLightbox" aria-hidden="true">
+    <button class="image-lightbox__close" type="button" aria-label="Tutup gambar">&times;</button>
+    <div class="image-lightbox__content">
+      <img class="image-lightbox__image" src="" alt=""/>
+    </div>
+  </div>
 </body>
 </html>

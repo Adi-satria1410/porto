@@ -124,3 +124,114 @@ faqButtons.forEach((button, index) => {
     panel.hidden = isExpanded;
   });
 });
+
+//lightbox modal
+document.addEventListener('DOMContentLoaded', () => {
+
+  const lightbox = document.querySelector('#imageLightbox');
+
+  const lightboxImage = document.querySelector(
+    '.image-lightbox__image'
+  );
+
+  const lightboxClose = document.querySelector(
+    '.image-lightbox__close'
+  );
+
+  const lightboxTriggers = document.querySelectorAll(
+    '[data-lightbox]'
+  );
+
+
+  // Cek apakah elemen berhasil ditemukan
+  if (!lightbox || !lightboxImage || !lightboxClose) {
+    console.error('Lightbox element tidak ditemukan.');
+    return;
+  }
+
+
+  const openLightbox = (image) => {
+
+    lightboxImage.src = image.src;
+    lightboxImage.alt = image.alt;
+
+    lightbox.classList.add('is-active');
+
+    lightbox.setAttribute(
+      'aria-hidden',
+      'false'
+    );
+
+    document.body.style.overflow = 'hidden';
+
+  };
+
+
+  const closeLightbox = () => {
+
+    lightbox.classList.remove('is-active');
+
+    lightbox.setAttribute(
+      'aria-hidden',
+      'true'
+    );
+
+    document.body.style.overflow = '';
+
+    // kosongkan gambar setelah modal ditutup
+    setTimeout(() => {
+      lightboxImage.src = '';
+    }, 300);
+
+  };
+
+
+  lightboxTriggers.forEach((image) => {
+
+    image.addEventListener('click', () => {
+
+      openLightbox(image);
+
+    });
+
+  });
+
+
+  lightboxClose.addEventListener(
+    'click',
+    closeLightbox
+  );
+
+
+  lightbox.addEventListener(
+    'click',
+    (event) => {
+
+      if (
+        event.target === lightbox ||
+        event.target.classList.contains(
+          'image-lightbox__content'
+        )
+      ) {
+        closeLightbox();
+      }
+
+    }
+  );
+
+
+  document.addEventListener(
+    'keydown',
+    (event) => {
+
+      if (
+        event.key === 'Escape' &&
+        lightbox.classList.contains('is-active')
+      ) {
+        closeLightbox();
+      }
+
+    }
+  );
+
+});
