@@ -1,1 +1,6 @@
 docs/
+.qa-tools/
+tests/artifacts/
+dist/
+.vercel/
+.env*

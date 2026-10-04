@@ -146,6 +146,9 @@ document.addEventListener('DOMContentLoaded', () => {
       '[data-lightbox]'
     );
 
+  // Pages without image previews do not need a lightbox.
+  if (!lightboxTriggers.length) return;
+
 
   if (
     !lightbox ||

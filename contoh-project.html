@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id" class="no-js">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#121212" />
+  <title>Contoh Project — Adi Satria Ramadani</title>
+  <meta name="description" content="Ruang eksplorasi frontend dan contoh project pribadi Adi Satria Ramadani." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/examples.css" />
+</head>
+<body class="examples-page">
+  <a class="skip-link" href="#main-content">Lewati ke konten utama</a>
+
+  <header class="navbar" id="navbar">
+    <a href="index.html" class="navbar__brand" aria-label="Adi Satria Ramadani, kembali ke beranda">ASR<span>®</span></a>
+    <nav class="navbar__links" id="navLinks" aria-label="Navigasi utama">
+      <a href="index.html#projects">Karya</a>
+      <a href="contoh-project.html" aria-current="page">Contoh Project</a>
+      <a href="index.html#about">Tentang</a>
+    </nav>
+    <a class="navbar__contact" href="index.html#contact">Hubungi saya <span aria-hidden="true">↗</span></a>
+    <button class="navbar__toggle" id="navToggle" type="button" aria-label="Buka menu" aria-controls="navLinks" aria-expanded="false">
+      <span aria-hidden="true"></span><span aria-hidden="true"></span>
+    </button>
+  </header>
+
+  <main id="main-content">
+    <section class="examples-intro" aria-labelledby="examples-title">
+      <a class="examples-back" href="index.html#projects"><span aria-hidden="true">↖</span> Kembali ke karya</a>
+      <div class="examples-intro__heading">
+        <div>
+          <p class="eyebrow">PERSONAL EXPLORATIONS / FRONTEND</p>
+          <h1 id="examples-title">Contoh<br /><em>project.</em></h1>
+        </div>
+        <p class="examples-intro__lede">Ruang untuk ide, latihan, dan eksplorasi interface. Kumpulan project pribadi yang saya buat.</p>
+      </div>
+      <div class="examples-intro__status"><span>EXPERIMENTS &amp; PRACTICE</span><span>PROJECT COLLECTION</span></div>
+    </section>
+
+    <section class="examples-collection" aria-labelledby="collection-title">
+      <div class="examples-collection__header">
+        <h2 id="collection-title">Koleksi project</h2>
+        <p id="collection-message" role="status" aria-live="polite">Memuat koleksi project?</p>
+      </div>
+
+      <noscript>Aktifkan JavaScript untuk melihat koleksi project.</noscript>
+      <button id="collection-retry" class="gallery-button" type="button" hidden>Coba lagi</button>
+      <div id="published-projects" class="examples-grid" aria-busy="true"></div>
+      <nav class="gallery-pagination" aria-label="Halaman koleksi">
+        <button id="collection-previous" class="gallery-button" type="button" disabled>Sebelumnya</button>
+        <span id="collection-page"></span>
+        <button id="collection-next" class="gallery-button" type="button" disabled>Berikutnya</button>
+      </nav>
+      <dialog id="gallery-lightbox" aria-labelledby="gallery-caption">
+        <button id="gallery-close" class="gallery-button" type="button" autofocus>Tutup gambar</button>
+        <p id="gallery-caption" aria-live="polite"></p>
+        <img id="gallery-image" alt="" hidden />
+        <p id="gallery-error" role="status"></p>
+        <div class="gallery-pagination">
+          <button id="image-previous" class="gallery-button" type="button">Sebelumnya</button>
+          <button id="image-next" class="gallery-button" type="button">Berikutnya</button>
+        </div>
+      </dialog>
+      <p class="examples-collection__note">Eksplorasi kecil, ruang untuk terus berkembang.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>© 2026 ADI SATRIA RAMADANI</span>
+    <a href="index.html#projects">KEMBALI KE PORTFOLIO <span aria-hidden="true">↗</span></a>
+  </footer>
+  <script src="js/main.js"></script>
+  <script type="module" src="js/public-projects.js"></script>
+</body>
+</html>

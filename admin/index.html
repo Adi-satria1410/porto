@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Project Admin — ASR Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/variables.css" />
+  <link rel="stylesheet" href="../css/admin.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Lewati ke konten utama</a>
+  <header class="admin-header">
+    <a class="brand" href="../index.html" aria-label="Kembali ke portfolio">ASR<span>®</span></a>
+    <span class="eyebrow">PORTFOLIO / ADMIN</span>
+    <a href="../contoh-project.html">Lihat portfolio ↗</a>
+  </header>
+  <main id="main-content" class="admin-main">
+    <div id="access-panel" class="access-panel">
+      <p id="access-message" role="status">Memeriksa akses admin…</p>
+      <a href="login.html">Ke halaman login</a>
+    </div>
+    <noscript><p>Aktifkan JavaScript untuk menggunakan admin.</p></noscript>
+    <section id="dashboard" hidden aria-labelledby="projects-title">
+      <div class="page-heading">
+        <div><p class="eyebrow">KOLEKSI KARYA</p><h1 id="projects-title">Project<span>.</span></h1></div>
+        <div class="account"><p id="account-email"></p><button id="logout" type="button">Keluar</button></div>
+      </div>
+      <a class="admin-button" href="project.html">+ Tambah project</a>
+      <form id="filters" class="filters" role="search">
+        <div><label for="search">Cari project</label><input id="search" type="search" placeholder="Cari berdasarkan nama…" maxlength="160" /></div>
+        <div><label for="status">Status publikasi</label><select id="status"><option value="">Semua status</option><option value="draft">Draft</option><option value="published">Published</option></select></div>
+        <button type="submit">Terapkan</button>
+        <button id="refresh" type="button">Muat ulang</button>
+      </form>
+      <p id="list-message" class="message" role="status" aria-live="polite"></p>
+      <div id="project-list" class="project-grid" aria-busy="false"></div>
+      <nav class="pagination" aria-label="Halaman daftar project">
+        <button id="previous" type="button" disabled>Sebelumnya</button>
+        <span id="page-label"></span>
+        <button id="next" type="button" disabled>Berikutnya</button>
+      </nav>
+    </section>
+  </main>
+  <script type="module" src="../js/admin-projects.js"></script>
+</body>
+</html>

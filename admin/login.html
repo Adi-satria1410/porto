@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Login Admin — ASR Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/variables.css" />
+  <link rel="stylesheet" href="../css/admin.css" />
+</head>
+<body class="login-page">
+  <main class="login-layout">
+    <section class="login-intro" aria-labelledby="login-title">
+      <a class="brand" href="../index.html" aria-label="Kembali ke portfolio">ASR<span>®</span></a>
+      <p class="eyebrow">PORTFOLIO / ADMIN</p>
+      <h1 id="login-title">Ruang<br />kelola <em>karya.</em></h1>
+      <p>Masuk untuk melihat project dan status publikasinya.</p>
+      <a class="back-link" href="../index.html">↖ Kembali ke portfolio</a>
+    </section>
+    <section class="login-panel" aria-labelledby="form-title">
+      <p class="eyebrow">AKSES PEMILIK</p>
+      <h2 id="form-title">Selamat datang kembali.</h2>
+      <p class="muted">Gunakan akun admin portfolio kamu.</p>
+      <form id="login-form">
+        <fieldset id="login-fields" disabled>
+          <label for="email">Email</label>
+          <input id="email" type="email" autocomplete="username" required maxlength="254" />
+          <label for="password">Password</label>
+          <input id="password" type="password" autocomplete="current-password" required />
+          <label class="checkbox"><input id="show-password" type="checkbox" /> Tampilkan password</label>
+          <button class="primary" type="submit" id="login-submit">Masuk ke admin <span aria-hidden="true">↗</span></button>
+        </fieldset>
+      </form>
+      <p id="login-message" class="message" role="status" aria-live="polite">Menyiapkan halaman login…</p>
+      <noscript><p>Aktifkan JavaScript untuk menggunakan admin.</p></noscript>
+    </section>
+  </main>
+  <script type="module" src="../js/admin-login.js"></script>
+</body>
+</html>

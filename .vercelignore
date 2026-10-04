@@ -1,0 +1,7 @@
+.qa-tools/
+tests/
+supabase/
+docs/
+dist/
+DEPLOYMENT.md
+.env*

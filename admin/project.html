@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Editor Project — ASR Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/variables.css" />
+  <link rel="stylesheet" href="../css/admin.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Lewati ke konten utama</a>
+  <header class="admin-header"><a class="brand" href="../index.html">ASR<span>®</span></a><span class="eyebrow">PROJECT / EDITOR</span><a href="index.html">↖ Daftar project</a></header>
+  <main id="main-content" class="admin-main">
+    <div id="access-panel" class="access-panel"><p id="access-message" role="status">Memeriksa akses admin…</p><a href="login.html">Ke halaman login</a></div>
+    <noscript>Aktifkan JavaScript untuk menggunakan editor.</noscript>
+    <section id="editor" hidden aria-labelledby="editor-title">
+      <div class="page-heading"><div><p class="eyebrow">DRAFT PROJECT</p><h1 id="editor-title">Tambah project<span>.</span></h1></div><button id="preview-button" type="button">Preview project ↗</button></div>
+      <p id="editor-message" class="message" role="status" aria-live="polite"></p>
+      <form id="project-form" class="editor-panel">
+        <fieldset id="project-fields">
+          <legend>01 / Informasi project</legend>
+          <label for="title">Nama project</label><input id="title" maxlength="160" required />
+          <label for="description">Deskripsi</label><textarea id="description" rows="6" maxlength="10000"></textarea>
+          <label for="technologies">Teknologi</label><input id="technologies" placeholder="HTML, CSS, JavaScript" aria-describedby="technology-hint" />
+          <p id="technology-hint" class="muted">Pisahkan teknologi dengan koma. Maksimal 30 teknologi.</p>
+          <div class="editor-columns"><div><label for="demo-url">Tautan demo (opsional)</label><input id="demo-url" type="url" maxlength="2048" placeholder="https://contoh.com" /></div><div><label for="sort-order">Urutan tampil</label><input id="sort-order" type="number" min="0" max="2147483647" step="1" value="0" required /></div></div>
+          <button class="primary editor-save" type="submit">Simpan draft</button>
+        </fieldset>
+      </form>
+      <section class="editor-panel" aria-labelledby="screenshots-title">
+        <h2 id="screenshots-title">02 / Screenshot website</h2>
+        <p id="upload-hint" class="muted">Simpan draft terlebih dahulu untuk menambahkan screenshot.</p>
+        <form id="upload-form">
+          <fieldset id="upload-fields" disabled>
+            <label for="screenshot-file">Pilih screenshot</label><input id="screenshot-file" type="file" accept="image/jpeg,image/png,image/webp" required />
+            <p class="muted">JPG, PNG, atau WebP. Maksimal 5 MiB per gambar. Tambahkan screenshot satu per satu.</p>
+            <img id="local-preview" class="upload-preview" alt="Preview screenshot yang dipilih" hidden />
+            <label for="screenshot-alt">Keterangan gambar</label><input id="screenshot-alt" maxlength="300" placeholder="Contoh: Beranda website pada layar desktop" required />
+            <button type="submit">Upload screenshot</button>
+          </fieldset>
+        </form>
+        <button id="reload-images" type="button" disabled>Muat ulang screenshot</button>
+        <p id="image-message" class="message" role="status" aria-live="polite"></p>
+        <div id="image-list" class="project-grid"></div>
+      </section>
+    </section>
+    <dialog id="preview-dialog" aria-labelledby="preview-title">
+      <div class="preview-toolbar"><span class="eyebrow">PREVIEW / BELUM DIPUBLIKASIKAN</span><button id="close-preview" type="button" autofocus>Tutup preview</button></div>
+      <p class="muted">Informasi mengikuti isian form saat ini. Screenshot mengikuti data yang sudah tersimpan.</p>
+      <div id="preview-images" class="preview-images"></div>
+      <h2 id="preview-title"></h2><p id="preview-description"></p><div id="preview-technologies" class="tags"></div>
+      <a id="preview-demo" target="_blank" rel="noopener noreferrer" hidden>Lihat demo ↗</a>
+    </dialog>
+  </main>
+  <script type="module" src="../js/admin-editor.js"></script>
+</body>
+</html>
