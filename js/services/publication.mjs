@@ -1,5 +1,5 @@
-import { projectValues, readProject, readImages, SCREENSHOT_BUCKET } from './project-editor-service.mjs';
-import { verifyAdmin } from './admin-service.mjs';
+import { projectValues, readProject, readImages, SCREENSHOT_BUCKET } from './project-editor.mjs';
+import { verifyAdmin } from './admin.mjs';
 
 export function validatePublication(project, images) {
   projectValues({ ...project, technologies: project.technologies.join(', '), demo_url: project.demo_url || '' });

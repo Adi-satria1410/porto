@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { verifyAdmin, validateConfig, loadProjects } from '../js/admin-service.mjs';
+import { verifyAdmin, validateConfig, loadProjects } from '../js/services/admin.mjs';
 
 function authClient({ session = true, valid = true, admin = true, rpcError = null } = {}) {
   return {

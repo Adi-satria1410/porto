@@ -1,9 +1,9 @@
 # Supabase — Panduan dan catatan implementasi
 
-Panduan deployment terkini: [DEPLOYMENT.md](../DEPLOYMENT.md).
+Panduan deployment terkini: [DEPLOYMENT.md](../docs/DEPLOYMENT.md).
 Bagian tahap 1–5 di bawah merupakan catatan pekerjaan per tahap; pernyataan
 "belum dibuat" pada tahap terdahulu dibaca sesuai waktu tahap tersebut.
-Untuk status verifikasi terakhir, lihat [laporan QA](../tests/QA-REPORT.md).
+Untuk status verifikasi terakhir, lihat [laporan QA](../docs/QA-REPORT.md).
 
 ## Tahap 6 — Konfigurasi dan panduan deployment
 
@@ -59,7 +59,7 @@ desktop/mobile. Mode `--live-readonly` memeriksa SDK dan akses anonim Supabase a
 Redirect editor setelah logout lalu Back telah diperbaiki.
 
 Rincian hasil, cara menjalankan ulang, dan batas pengujian ada di
-[`tests/QA-REPORT.md`](../tests/QA-REPORT.md). Pengujian mutasi dengan akun admin
+[`docs/QA-REPORT.md`](../docs/QA-REPORT.md). Pengujian mutasi dengan akun admin
 asli belum dilakukan. Tidak ada deployment pada tahap ini.
 
 ---

@@ -10,9 +10,9 @@ atau deployment yang dilakukan pada tahap 6.
 ## 1. Pastikan konfigurasi Supabase
 
 Jika setup tahap sebelumnya sudah selesai, jangan menjalankan ulang migrasi awal.
-Untuk project Supabase baru, ikuti [panduan Supabase](supabase/README.md).
+Untuk project Supabase baru, ikuti [panduan Supabase](../supabase/README.md).
 
-File [js/supabase-config.js](js/supabase-config.js) harus berisi:
+File [js/supabase-config.js](../js/supabase-config.js) harus berisi:
 
 ```js
 export const supabaseConfig = {
@@ -100,14 +100,14 @@ Untuk project baru, import repository yang berisi root website ini.
 | Output Directory | `dist` |
 | Environment Variables | Tidak diperlukan oleh implementasi sekarang |
 
-[vercel.json](vercel.json) menetapkan build, install, dan output tersebut.
+[vercel.json](../vercel.json) menetapkan build, install, dan output tersebut.
 Tidak perlu menjalankan `npm run build` atau memilih Next.js. `cleanUrls: false`
 mempertahankan link `.html` yang dipakai aplikasi. Jangan menambahkan rewrite semua
 URL ke `index.html`, karena admin dan galeri adalah halaman HTML terpisah.
 Vercel mendukung override ini melalui
 [konfigurasi vercel.json](https://vercel.com/docs/project-configuration/vercel-json).
 
-File [`.vercelignore`](.vercelignore) mengurangi file yang dikirim melalui CLI.
+File [`.vercelignore`](../.vercelignore) mengurangi file yang dikirim melalui CLI.
 Untuk deployment berbasis Git, pembatas file publik tetap berasal dari script build
 dan Output Directory `dist`, sehingga tidak bergantung pada aturan ignore CLI.
 Rujukan: [Vercel build features](https://vercel.com/docs/builds/build-features).
@@ -176,7 +176,7 @@ Chrome terhadap `dist` juga berhasil memuat SDK asli, mengarahkan akses admin
 anonim ke login, dan membaca galeri dari Supabase. Ini pengujian output lokal,
 bukan konfirmasi deployment Vercel.
 
-[Laporan QA](tests/QA-REPORT.md) membedakan tes mock dari pemeriksaan Supabase asli.
+[Laporan QA](QA-REPORT.md) membedakan tes mock dari pemeriksaan Supabase asli.
 Login serta operasi upload/publish/hapus memakai akun admin asli belum diuji pada
 tahap 5. Deployment produksi dan pengujian setelah deployment juga belum dilakukan.
 Hapus screenshot dan hapus keseluruhan project sudah tersedia, termasuk penanganan

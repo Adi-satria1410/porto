@@ -1,5 +1,5 @@
-import { verifyAdmin } from './admin-service.mjs';
-import { SCREENSHOT_BUCKET } from './project-editor-service.mjs';
+import { verifyAdmin } from './admin.mjs';
+import { SCREENSHOT_BUCKET } from './project-editor.mjs';
 
 export async function deleteProject(client, id) {
   if (!/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(id)) {

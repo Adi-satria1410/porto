@@ -1,5 +1,5 @@
-import { getSupabase } from './supabase-client.js';
-import { verifyAdmin } from './admin-service.mjs';
+import { getSupabase } from '../supabase-client.js';
+import { verifyAdmin } from '../services/admin.mjs';
 
 const form = document.getElementById('login-form');
 const fields = document.getElementById('login-fields');

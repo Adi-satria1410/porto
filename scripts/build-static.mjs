@@ -3,7 +3,7 @@ import { copyFile, lstat, mkdir, readdir, realpath, rm } from 'node:fs/promises'
 import { dirname, join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { supabaseConfig } from '../js/supabase-config.js';
-import { validateConfig } from '../js/admin-service.mjs';
+import { validateConfig } from '../js/services/admin.mjs';
 
 const root = await realpath(fileURLToPath(new URL('../', import.meta.url)));
 const output = resolve(root, 'dist');

@@ -1,6 +1,6 @@
 import { getPublicSupabase } from './supabase-client.js';
-import { loadPublished, orderedImages, safeDemo } from './publication-service.mjs';
-import { SCREENSHOT_BUCKET } from './project-editor-service.mjs';
+import { loadPublished, orderedImages, safeDemo } from './services/publication.mjs';
+import { SCREENSHOT_BUCKET } from './services/project-editor.mjs';
 
 const $ = id => document.getElementById(id);
 let client, page = 0, generation = 0, urls = [], selected = [], imageIndex = 0, imageRequest = 0, lightboxUrl;

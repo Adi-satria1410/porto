@@ -1,7 +1,7 @@
-import { getSupabase } from './supabase-client.js';
-import { verifyAdmin } from './admin-service.mjs';
+import { getSupabase } from '../supabase-client.js';
+import { verifyAdmin } from '../services/admin.mjs';
 import { projectValues, validateImage, requireDraft, saveDraft, readImages, uploadScreenshot,
-  updateScreenshot, setCover, deleteScreenshot, SCREENSHOT_BUCKET } from './project-editor-service.mjs';
+  updateScreenshot, setCover, deleteScreenshot, SCREENSHOT_BUCKET } from '../services/project-editor.mjs';
 
 const $ = id => document.getElementById(id);
 let client, projectId = new URLSearchParams(location.search).get('id');

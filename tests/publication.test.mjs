@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { validatePublication, changePublication, loadPublished, orderedImages, safeDemo } from '../js/publication-service.mjs';
+import { validatePublication, changePublication, loadPublished, orderedImages, safeDemo } from '../js/services/publication.mjs';
 const project = { id: 'p', title: 'Demo', description: 'Description', technologies: ['HTML'], demo_url: null, sort_order: 0, status: 'draft', updated_at: 'timestamp' };
 const image = { id: 'a', storage_path: 'p/a.png', is_cover: false, sort_order: 0, created_at: '2026-01-01' };
 function fake(results, { admin = true, downloadError = false } = {}) {

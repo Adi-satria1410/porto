@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { projectValues, validateImage, saveDraft, uploadScreenshot, deleteScreenshot, setCover } from '../js/project-editor-service.mjs';
+import { projectValues, validateImage, saveDraft, uploadScreenshot, deleteScreenshot, setCover } from '../js/services/project-editor.mjs';
 
 const values = { title: ' Demo ', description: ' Test ', technologies: 'HTML, CSS, HTML, ', demo_url: '', sort_order: '0' };
 const file = { type: 'image/png', size: 1024 };

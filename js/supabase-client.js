@@ -1,5 +1,5 @@
 import { supabaseConfig } from './supabase-config.js';
-import { validateConfig } from './admin-service.mjs';
+import { validateConfig } from './services/admin.mjs';
 
 let clientPromise;
 let publicClientPromise;

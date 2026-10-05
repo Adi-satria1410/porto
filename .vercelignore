@@ -3,5 +3,5 @@ tests/
 supabase/
 docs/
 dist/
-DEPLOYMENT.md
+README.md
 .env*

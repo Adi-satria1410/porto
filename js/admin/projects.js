@@ -1,7 +1,7 @@
-import { getSupabase } from './supabase-client.js';
-import { verifyAdmin, loadProjects } from './admin-service.mjs';
-import { changePublication } from './publication-service.mjs';
-import { deleteProject } from './project-delete-service.mjs';
+import { getSupabase } from '../supabase-client.js';
+import { verifyAdmin, loadProjects } from '../services/admin.mjs';
+import { changePublication } from '../services/publication.mjs';
+import { deleteProject } from '../services/project-delete.mjs';
 
 const $ = (id) => document.getElementById(id);
 let client, page = 0, request = 0, allowed = false;

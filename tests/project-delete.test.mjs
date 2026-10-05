@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { deleteProject } from '../js/project-delete-service.mjs';
+import { deleteProject } from '../js/services/project-delete.mjs';
 
 const id = '11111111-1111-4111-8111-111111111111';
 const project = { id, status: 'published', updated_at: 'before' };
