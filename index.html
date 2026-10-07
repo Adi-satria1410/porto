@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#121212" />
+  <meta name="theme-color" content="#f6e7ca" />
   <title>Adi Satria Ramadani — Frontend Developer</title>
   <meta name="description" content="Portfolio Adi Satria Ramadani, Frontend Developer yang membangun interface web jelas, responsif, dan mudah digunakan." />
   <meta property="og:type" content="website" />
@@ -12,7 +12,7 @@
   <link rel="canonical" href="./" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/variables.css" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/projects.css" />
@@ -55,11 +55,12 @@
     <section id="hero" class="hero" aria-labelledby="hero-title">
       <div class="hero__topline">
         <p>PORTFOLIO / 2026</p>
-        <p>OPEN TO WORK · INDONESIA</p>
+        <p class="availability"><span aria-hidden="true"></span> OPEN TO WORK · INDONESIA</p>
       </div>
       <div class="hero__title-wrap">
-        <p class="hero__role">FRONTEND<br />DEVELOPER</p>
-        <h1 id="hero-title" class="hero__title"><span>ADI</span><span>SATRIA</span><span>RAMADANI</span></h1>
+        <p class="hero__role">HALO, SAYA ADI! <span aria-hidden="true">✦</span></p>
+        <h1 id="hero-title" class="hero__title"><span>Adi Satria</span> <span>Ramadani<span class="hero__period">.</span></span></h1>
+        <p class="hero__profession">Frontend Developer</p>
       </div>
       <div class="hero__bottom">
         <p class="hero__intro">Frontend Developer yang mengubah ide menjadi pengalaman digital yang jelas, responsif, dan mudah digunakan.</p>
@@ -68,13 +69,27 @@
           <a class="button button--outline" href="#contact">Hubungi saya <span aria-hidden="true">↗</span></a>
         </div>
       </div>
-      <div class="hero__status" aria-label="Status kerja">
-        <span>AVAILABLE FOR SELECTED PROJECTS</span>
-        <span>01 / INTRO</span>
+      <div class="hero__art" aria-hidden="true">
+        <span class="hero__sparkle hero__sparkle--top">✦</span>
+        <div class="creative-window">
+          <div class="creative-window__canvas">
+            <span class="creative-window__label">A LITTLE CODE. A LOT OF CARE.</span>
+            <svg class="smiley" viewBox="0 0 200 200" fill="none">
+              <path d="M100 8 116 19 136 14 146 32 166 36 170 57 187 69 181 89 192 107 179 123 180 144 160 151 151 171 130 170 114 186 96 177 76 184 63 168 42 165 37 145 18 134 23 113 10 96 22 79 19 58 39 49 47 29 68 30 82 13Z" fill="var(--mustard)" stroke="var(--ink)" stroke-width="4" stroke-linejoin="round"/>
+              <ellipse cx="76" cy="83" rx="7" ry="14" fill="var(--ink)"/><ellipse cx="124" cy="83" rx="7" ry="14" fill="var(--ink)"/>
+              <path d="M65 115c10 34 60 34 70 0" stroke="var(--ink)" stroke-width="5" stroke-linecap="round"/>
+            </svg>
+            <p>Good ideas.<br /><strong>Great interfaces.</strong></p>
+            <div class="creative-window__tags"><span>&lt;HTML&gt;</span><span>{CSS}</span><span>JS ✦</span></div>
+          </div>
+        </div>
+        <span class="hero__sticker">DESIGNED<br />&amp; CODED<br /><b>WITH CARE ↗</b></span>
+        <span class="hero__sparkle hero__sparkle--bottom">✦</span>
       </div>
-      <div class="hero__number" aria-hidden="true">01</div>
-      <div class="speed-lines" aria-hidden="true"></div>
+      <div class="hero__status"><span>IDE YANG BAIK, DIBANGUN DENGAN DETAIL.</span><a href="#projects">SCROLL UNTUK EKSPLORASI ↓</a></div>
     </section>
+
+    <div class="ticker" aria-label="HTML, CSS, JavaScript, responsive design, frontend development"><div class="ticker__track" aria-hidden="true"><span>HTML &amp; CSS <b>✦</b> JAVASCRIPT <b>✦</b> RESPONSIVE DESIGN <b>✦</b> FRONTEND DEVELOPMENT <b>✦</b> IDEAS INTO INTERFACES <b>✦</b></span><span>HTML &amp; CSS <b>✦</b> JAVASCRIPT <b>✦</b> RESPONSIVE DESIGN <b>✦</b> FRONTEND DEVELOPMENT <b>✦</b> IDEAS INTO INTERFACES <b>✦</b></span></div></div>
 
     <section id="projects" class="section projects" aria-labelledby="projects-title">
       <div class="section__meta"><span>01</span><span>SELECTED PROJECTS</span></div>
@@ -92,6 +107,9 @@
               <p class="eyebrow">IN DEVELOPMENT / 2026</p>
               <h3 id="project-one-title">Portfolio pribadi untuk membaca kemampuan dengan cepat.</h3>
               <p>Website satu halaman untuk memperkenalkan profil, karya, pengalaman, dan jalur kontak dalam alur yang mudah dipindai recruiter maupun calon klien.</p>
+            </div>
+            <div class="portfolio-preview" aria-hidden="true">
+                  <div class="portfolio-preview__canvas"><span>ASR® / FRONTEND DEVELOPER</span><p>Ide jadi<br /><em>interaksi.</em></p><span class="portfolio-preview__flower">✦</span><span class="portfolio-preview__pill">LET’S BUILD SOMETHING ↗</span></div>
             </div>
             <dl class="project-card__details">
               <div><dt>FOCUS</dt><dd>Responsive layout, navigasi anchor, progressive enhancement, dan interaksi dasar.</dd></div>
