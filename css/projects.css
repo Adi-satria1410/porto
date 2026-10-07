@@ -1,7 +1,8 @@
-﻿/* Open project spreads: typography and rules replace enclosing cards. */
+/* Featured work uses cards; the surrounding sections keep an open layout. */
 .project-list { display: grid; gap: 3rem; }
-.project-card { min-width: 0; padding-top: 1.25rem; border-top: var(--stroke); }
-.project-card__header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.75rem; font: 700 11px/1.5 var(--mono); letter-spacing: .04em; }
+.project-card { min-width: 0; padding: 1.75rem; border: var(--stroke); border-radius: 12px; background: var(--white); box-shadow: var(--shadow-lg); }
+.project-card--ink { background: #fff2db; }
+.project-card__header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.75rem; padding-bottom: 1rem; border-bottom: 2px solid var(--ink); font: 700 11px/1.5 var(--mono); letter-spacing: .04em; }
 .project-card__number { color: var(--red); font: 800 32px/1 var(--display); }
 .project-card__body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1.5rem 3rem; align-items: start; }
 .project-card__intro { grid-column: 1; }
@@ -40,6 +41,7 @@
   .portfolio-preview__flower { top: 3rem; font-size: 125px; }
 }
 @media (max-width: 767px) {
+  .project-card { padding: 1.25rem; }
   .project-card__body { grid-template-columns: minmax(0, 1fr); }
   .project-card__header { font-size: 10px; margin-bottom: 1.25rem; }
   .project-card__intro h3 { font-size: 24px; }

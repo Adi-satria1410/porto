@@ -14,7 +14,7 @@
 .examples-collection__header p, .examples-collection__note { color: var(--muted); font-size: 13px; }
 .examples-collection__note { margin-top: 2rem; }
 .examples-grid { display: grid; gap: 2.5rem; }
-.example-slot { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); align-items: start; gap: 2.5rem; min-width: 0; padding-top: 2rem; border-top: var(--stroke); }
+.example-slot { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); align-items: start; gap: 2.5rem; min-width: 0; padding: 1.5rem; border: var(--stroke); border-radius: 12px; background: var(--white); box-shadow: var(--shadow-lg); }
 .published-card { overflow-wrap: anywhere; }
 .example-slot__body { min-width: 0; }
 .example-slot__status { color: var(--red); font: 700 10px/1.6 var(--mono); letter-spacing: .04em; }
@@ -44,6 +44,6 @@
   .examples-intro__lede { font-size: 13px; }
   .examples-intro__status { font-size: 9px; }
   .examples-collection__header h2 { font-size: 30px; }
-  .example-slot { grid-template-columns: minmax(0, 1fr); gap: 1.25rem; padding-top: 1.5rem; }
+  .example-slot { grid-template-columns: minmax(0, 1fr); gap: 1.25rem; padding: 1.25rem; }
   .gallery-button { font-size: 11px; padding-inline: .85rem; }
 }
