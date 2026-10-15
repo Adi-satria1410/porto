@@ -73,7 +73,7 @@ Tombol **Kembalikan ke draft** menyembunyikan project dari permintaan galeri
 berikutnya. Untuk mengedit project published: kembalikan ke draft, edit,
 preview, lalu publish kembali.
 
-`contoh-project.html` sekarang membaca project published dari Supabase dengan
+Bagian Contoh project di `index.html#contoh-project` membaca project published dari Supabase dengan
 pagination 9 project per halaman. Kartu menampilkan cover, nama, deskripsi,
 teknologi, dan tautan demo yang valid. Screenshot dapat dibuka dalam dialog
 lightbox, dengan tombol sebelumnya/berikutnya, tombol panah keyboard, dan Escape.

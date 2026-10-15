@@ -35,7 +35,7 @@ try {
     console.log('PASS: actual CDN SDK initializes login with configured Supabase');
     await page.goto(base+'/admin/index.html');await page.waitForURL('**/admin/login.html');
     console.log('PASS: actual anonymous session redirects admin to login');
-    await page.goto(base+'/contoh-project.html');
+    await page.goto(base+'/index.html#contoh-project');
     await page.locator('#published-projects[aria-busy="false"]').waitFor();
     assert.equal(await page.locator('#collection-retry').isVisible(),false);
     console.log('PASS: actual public gallery loads from Supabase');
@@ -76,7 +76,7 @@ try {
   });
   const draftUrl=page.url();
   await check('draft hidden from public gallery even with admin session',async()=>{
-    const tab=await context.newPage();await tab.goto(base+'/contoh-project.html');await tab.getByText('Segera hadir. Belum ada project yang dipublikasikan.').waitFor();await tab.close();
+    const tab=await context.newPage();await tab.goto(base+'/index.html#contoh-project');await tab.getByText('Segera hadir. Belum ada project yang dipublikasikan.').waitFor();await tab.close();
   });
   const png=Buffer.from(await page.evaluate(()=>{
     const c=document.createElement('canvas');c.width=960;c.height=640;const x=c.getContext('2d');
@@ -93,9 +93,9 @@ try {
   await check('editor mobile widths 320/390/768',async()=>{
     for(const width of [320,390,768]){await page.setViewportSize({width,height:900});await noOverflow();if(width===390)await screenshot('editor-mobile');}
   });
-  await check('publish displays project in gallery and lightbox',async()=>{
+  await check('publish displays project on homepage and lightbox',async()=>{
     await page.setViewportSize({width:1440,height:1000});await page.goto(base+'/admin/index.html');await page.getByRole('button',{name:'Publish project'}).click();await page.getByRole('button',{name:'Kembalikan ke draft'}).waitFor();
-    await page.goto(base+'/contoh-project.html');await page.getByRole('heading',{name:'QA Website'}).waitFor();await page.locator('.gallery-cover img').waitFor();await screenshot('gallery-desktop');
+    await page.getByRole('link',{name:'Lihat portfolio'}).click();await page.waitForURL('**/index.html#contoh-project');await page.getByRole('heading',{name:'QA Website'}).waitFor();await page.locator('.gallery-cover img').waitFor();await screenshot('gallery-desktop');
     await page.getByRole('button',{name:'Lihat 1 screenshot QA Website'}).click();await visible('#gallery-image');await page.keyboard.press('Escape');assert.equal(await page.locator('#gallery-lightbox').isVisible(),false);
     for(const width of [320,390,768]){await page.setViewportSize({width,height:900});await noOverflow();if(width===390)await screenshot('gallery-mobile');}
   });
@@ -103,9 +103,33 @@ try {
     await page.evaluate(()=>localStorage.setItem('qa-offline','1'));await page.reload();await page.getByRole('button',{name:'Coba lagi',exact:true}).waitFor();
     await page.evaluate(()=>localStorage.removeItem('qa-offline'));await page.getByRole('button',{name:'Coba lagi',exact:true}).click();await page.getByRole('heading',{name:'QA Website'}).waitFor();
   });
+  await check('old gallery URL redirects to homepage collection',async()=>{
+    await page.goto(base+'/contoh-project.html');await page.waitForURL('**/index.html#contoh-project');
+    await page.getByRole('heading',{name:'QA Website'}).waitFor();
+  });
+  await check('long homepage collection stays visible and paginates on mobile',async()=>{
+    await page.evaluate(()=>{
+      const db=JSON.parse(localStorage.getItem('qa-db'));
+      for(let i=1;i<=9;i++) db.projects.push({...db.projects[0],id:`gallery-${i}`,title:`Gallery ${i}`,sort_order:i,description:'Responsive project description. '.repeat(40)});
+      localStorage.setItem('qa-db',JSON.stringify(db));
+    });
+    await page.setViewportSize({width:320,height:900});await page.reload();
+    await page.getByText('10 project dipublikasikan.').waitFor();
+    await page.locator('#contoh-project').scrollIntoViewIfNeeded();
+    await page.locator('#projects.is-revealed').waitFor();await noOverflow();
+    assert.equal(await page.locator('.published-card').count(),9);
+    await page.locator('#collection-next').click();await page.getByText('2 / 2',{exact:true}).waitFor();
+    assert.equal(await page.locator('.published-card').count(),1);
+    await page.locator('#collection-previous').click();await page.getByText('1 / 2',{exact:true}).waitFor();
+    await page.evaluate(()=>{
+      const db=JSON.parse(localStorage.getItem('qa-db'));
+      db.projects=db.projects.filter(p=>!p.id.startsWith('gallery-'));
+      localStorage.setItem('qa-db',JSON.stringify(db));
+    });
+  });
   await check('unpublish hides project and allows editing again',async()=>{
     await page.goto(base+'/admin/index.html');await page.getByRole('button',{name:'Kembalikan ke draft'}).click();await page.getByRole('link',{name:'Edit draft'}).waitFor();
-    await page.goto(base+'/contoh-project.html');await page.getByText('Segera hadir. Belum ada project yang dipublikasikan.').waitFor();
+    await page.goto(base+'/index.html#contoh-project');await page.getByText('Segera hadir. Belum ada project yang dipublikasikan.').waitFor();
     await page.goto(draftUrl);await visible('#editor');assert.equal(await page.locator('#title').inputValue(),'QA Website');
   });
   await check('delete screenshot removes file and metadata',async()=>{

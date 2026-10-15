@@ -32,7 +32,7 @@ function card(project, version) {
     article.append(open); cover(images[0], open, version);
   } else article.append(el('p', 'Screenshot belum tersedia.', 'example-slot__preview'));
   const body = el('div', '', 'example-slot__body');
-  body.append(el('h3', project.title), el('p', project.description, 'gallery-description'));
+  body.append(el('h4', project.title), el('p', project.description, 'gallery-description'));
   const tags = el('div', '', 'gallery-tags');
   project.technologies.forEach(tech => tags.append(el('span', tech)));
   body.append(tags);

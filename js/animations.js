@@ -20,7 +20,9 @@ window.addEventListener('DOMContentLoaded', () => {
       entry.target.classList.add('is-revealed');
       observer.unobserve(entry.target);
     });
-  }, { threshold: 0.12 });
+  // A published collection can be much taller than the viewport.
+  // Reveal when it enters the screen, regardless of its total height.
+  }, { threshold: 0 });
 
   revealSections.forEach((section) => observer.observe(section));
 });

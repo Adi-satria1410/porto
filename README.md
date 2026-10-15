@@ -6,8 +6,8 @@ Portfolio HTML/CSS/vanilla JavaScript dengan admin project dan Supabase
 ## Struktur
 
 ```text
-index.html               Beranda portfolio
-contoh-project.html      Galeri project published
+index.html               Beranda portfolio dengan galeri project published
+contoh-project.html      Pengalihan ke galeri di halaman utama
 admin/                   Halaman login, daftar, dan editor project
 css/                     Stylesheet bersama dan per halaman
 js/
@@ -35,6 +35,11 @@ dist/                    Hasil build, dibuat otomatis (diabaikan Git)
 3. Buka lewat HTTP/HTTPS melalui Laragon, bukan `file://`.
 4. Admin tersedia di `/admin/login.html` (atau `/PORTO/admin/login.html`
    jika memakai `localhost/PORTO`).
+
+Project yang dipublish dari admin otomatis tersedia di bagian **Contoh project**
+pada halaman utama (`index.html#contoh-project`) saat dibuka atau dimuat ulang.
+Draft tidak tampil. Setelah kode ini di-deploy, perubahan publikasi tidak
+memerlukan edit HTML atau deploy ulang karena koleksi dibaca langsung dari Supabase.
 
 ## Build dan tes
 

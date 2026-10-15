@@ -103,7 +103,7 @@ Untuk project baru, import repository yang berisi root website ini.
 [vercel.json](../vercel.json) menetapkan build, install, dan output tersebut.
 Tidak perlu menjalankan `npm run build` atau memilih Next.js. `cleanUrls: false`
 mempertahankan link `.html` yang dipakai aplikasi. Jangan menambahkan rewrite semua
-URL ke `index.html`, karena admin dan galeri adalah halaman HTML terpisah.
+URL ke `index.html`, karena admin tetap menggunakan halaman HTML terpisah.
 Vercel mendukung override ini melalui
 [konfigurasi vercel.json](https://vercel.com/docs/project-configuration/vercel-json).
 
@@ -128,7 +128,7 @@ URL setelah deployment:
 | Halaman | Path |
 | --- | --- |
 | Portfolio | `/` |
-| Contoh Project | `/contoh-project.html` |
+| Contoh Project | `/index.html#contoh-project` (URL lama `/contoh-project.html` dialihkan ke sini) |
 | Login admin | `/admin/login.html` |
 | Daftar project | `/admin/index.html` |
 | Tambah project | `/admin/project.html` |
